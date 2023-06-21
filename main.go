@@ -60,7 +60,7 @@ func run(sl *slog.Logger) error {
 	})
 
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
-		sl.Info("page not found")
+		sl.Info("page not found", "url", r.URL)
 
 		w.WriteHeader(404)
 		w.Write([]byte("tradeit - route not found"))
